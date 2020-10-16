@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Inscription</h2>
+  <form  *ngIf="formations">
+    <div class="form-group">
+      <label >Name:</label>
+      <input type="text" class="form-control" id="nom">
+    </div>
+
+    <div class="form-group">
+      <label >Prenom:</label>
+      <input type="text" class="form-control" name="prenom">
+    </div>
+
+    <div class="form-group">
+      <label >Date de naissance:</label>
+      <input type="text" class="form-control"  name="date">
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Example select</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+ <span *ngFor="let f of formations._embedded.formations">
+      <option name="f.nom" >{{f.nom}}</option>
+      </span>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" >Ajouter</button>
+  </form>
+</div>
+
+</body>
+</html>
+

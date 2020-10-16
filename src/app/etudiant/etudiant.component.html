@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body *ngIf="formations">
+
+<div class="container" >
+  <span *ngFor="let f of formations._embedded.formations" >
+  <button   class="button_margin"  (click)="onListeEtudiants(f)"  [ngClass]="f.id==currentFormation.id?'btn btn-danger':'btn btn-primary'">{{f.nom}}</button>
+    </span>
+  <h2>Liste des Etudiants</h2>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Date de naissance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  *ngFor="let e of etudiants._embedded.etudiants">
+      <td>{{e.nom}}</td>
+      <td>{{e.prenom}}</td>
+      <td>{{e.datedenaissance}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+
